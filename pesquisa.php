@@ -21,14 +21,7 @@
 
             $sql = "SELECT * FROM pessoas WHERE nome LIKE '%$pesquisa%'";
 
-            $dados = mysqli_query($conn, $sql);
-
-            while ($linha = mysqli_fetch_assoc($dados)){
-                foreach($linha as $key => $value){
-                    echo "$key: $value<br>";
-                }
-                echo "<hr>";
-            }    
+            $dados = mysqli_query($conn, $sql);   
 
     ?>
 
@@ -39,7 +32,7 @@
 
                     <nav class="navbar navbar-light bg-light">
                         <form class="form-inline" action="pesquisa.php" method="post">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Nome" aria-label="Pesquisar" name="busca">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Nome" aria-label="Pesquisar" name="busca" autofocus>
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
                         </form>
                     </nav>
@@ -56,30 +49,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">Nome</th>
-                                <td>Rua X</td>
-                                <td>11 911111111</td>
-                                <td>@teste@teste.com.br</td>
-                                <td>07/09/1990</td>
-                                
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td>Thornton</td>
-                                
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td>Thornton</td>
-                                
-                            </tr>
+                            <?php
+                                while ($linha = mysqli_fetch_assoc($dados)){
+                                $cod_pessoa = $linha['cod_pessoa'];
+                                $nome = $linha['nome'];
+                                $endereco = $linha['endereco'];
+                                $telefone = $linha['telefone'];
+                                $email = $linha['email'];
+                                $data_nascimento = $linha['data_nascimento'];        
+                                }
+
+                                echo 
+                                "<tr>
+                                    <th scope='row'>$nome</th>
+                                    <td>$endereco</td>
+                                    <td>$telefone</td>
+                                    <td>$email</td>
+                                    <td>$data_nascimento</td>
+                                </tr>"
+                            ?>
+                            
                         </tbody>
                     </table>
                 
