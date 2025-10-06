@@ -49,6 +49,7 @@
                             </tr>
                         </thead>
                         <tbody>
+
                             <?php
                                 while ($linha = mysqli_fetch_assoc($dados)){
                                 $cod_pessoa = $linha['cod_pessoa'];
@@ -56,9 +57,8 @@
                                 $endereco = $linha['endereco'];
                                 $telefone = $linha['telefone'];
                                 $email = $linha['email'];
-                                $data_nascimento = $linha['data_nascimento'];        
-                                }
-
+                                $data_nascimento = $linha['data_nascimento'];      
+                                
                                 echo 
                                 "<tr>
                                     <th scope='row'>$nome</th>
@@ -66,7 +66,9 @@
                                     <td>$telefone</td>
                                     <td>$email</td>
                                     <td>$data_nascimento</td>
-                                </tr>"
+                                </tr>";                                }
+
+                                
                             ?>
                             
                         </tbody>

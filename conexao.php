@@ -6,10 +6,9 @@
 
    $conn = mysqli_connect($server, $user, $pass, $bd);
 
-   if($conn){
-       echo "Conectado com sucesso";
-    } else {
-       mensagem("Erro ao conectar ao banco de dados", 'danger'); 
+   // É uma boa prática verificar a conexão e parar a execução se falhar.
+   if (!$conn) {
+       die("Erro ao conectar ao banco de dados: " . mysqli_connect_error());
     }
 
 ?>

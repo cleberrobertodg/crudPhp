@@ -16,31 +16,32 @@
             <!-- PHP COMEÇA AQUI -->
             <?php
 
-                include "conexao.php";
+                include_once "conexao.php";
+                include_once "funcoes.php";
 
                 $nome = $_POST['nome'];
                 $endereco = $_POST['endereco'];
                 $telefone = $_POST['telefone'];
                 $email = $_POST['email'];
                 $data_nascimento = $_POST['data_nascimento'];
-
-                $sql = "INSERT INTO `pessoas`(`nome`, `endereco`, `telefone`, `email`, `data_nascimento`) VALUES ('$nome','$endereco','$telefone','$email','$data_nascimento')";
-
-               if (mysqli_query($conn, $sql)){
-                    mensagem("$nome cadastrado com sucesso!", 'success');
-                    } else {
-                    mensagem("$nome sofreu erro ao realizar cadastro!", 'danger'); 
-                    }
-
-                    function mensagem($texto, $tipo){
-                        echo "<div class='alert alert-$tipo' role='alert'>
-                                $texto
-                            </div>";
-                    }
+                
+                // Usando prepared statements para previnir SQL Injection
+                $stmt = mysqli_prepare($conn, "INSERT INTO `pessoas`(`nome`, `endereco`, `telefone`, `email`, `data_nascimento`) VALUES (?, ?, ?, ?, ?)");
+                mysqli_stmt_bind_param($stmt, "sssss", $nome, $endereco, $telefone, $email, $data_nascimento);
+ 
+                if (mysqli_stmt_execute($stmt)) {
+                     mensagem("$nome cadastrado com sucesso!", 'success');
+                } else {
+                     mensagem("$nome sofreu erro ao realizar cadastro! " . mysqli_error($conn), 'danger'); 
+                }
+ 
+                mysqli_stmt_close($stmt);
+                mysqli_close($conn);
+ 
             ?>
             <!-- PHP TERMINA AQUI -->
 
-            <hr><a href="index.php" class="btn btn-primary">Voltar</a>;
+            <hr><a href="index.php" class="btn btn-primary">Voltar</a>
         </div>
     </div>
 
