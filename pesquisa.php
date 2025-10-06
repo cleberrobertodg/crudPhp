@@ -8,20 +8,15 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.rtl.min.css" integrity="sha384-CfCrinSRH2IR6a4e6fy2q6ioOX7O6Mtm1L9vRvFZ1trBncWmMePhzvafv7oIcWiW" crossorigin="anonymous">
 
-    <title>Empresa</title>
+    <title>Cadastro</title>
   </head>
   <body>
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="jumbotron">
-                    <h1 class="display-4">Cadastro Web!</h1>
-                    <p class="lead">Este é um sistema simplificado de cadastros. Base de estudos para sistema web PHP e MySQL.</p>
-                    <hr class="my-4">
-                    <p>Acesse as Funções.</p>
-                    <a class="btn btn-primary btn-lg" href="cadastro.php" role="button">Cadastre-se</a>
-                    <a class="btn btn-primary btn-lg" href="pesquisa.php" role="button">Pesquisar</a>
-                </div>
+                <h1>CRUD PHP</h1>
+                
+                <a href="index.php" class="btn btn-primary">Voltar a tela inicial</a></a>
             </div>
         </div>
     </div>
