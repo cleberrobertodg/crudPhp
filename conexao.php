@@ -9,6 +9,7 @@
    if($conn){
        echo "Conectado com sucesso";
     } else {
-       echo "Erro ao conectar: "; 
+       mensagem("Erro ao conectar ao banco de dados", 'danger'); 
     }
+
 ?>

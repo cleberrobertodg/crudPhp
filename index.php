@@ -14,11 +14,11 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1>Olá mundo!</h1>
+                <h1>CRUD PHP</h1>
                 <form action="cadastro_script.php" method="post">
                     <div class="mb-3">
                         <label for="nome" class="form-label">Nome completo</label>
-                        <input type="text" class="form-control" id="inputName" name="nome">  
+                        <input type="text" class="form-control" id="inputName" name="nome" required>  
                     </div>
                     <div class="mb-3">
                         <label for="endereco" class="form-label">Endereço</label>
@@ -33,8 +33,8 @@
                         <input type="email" class="form-control" id="inputEmail1" name="email">   
                     </div>
                     <div class="mb-3">
-                        <label for="nascimento" class="form-label">Data de nascimento</label>
-                        <input type="date" class="form-control" id="inputBorn" name="nascimento">   
+                        <label for="data_nascimento" class="form-label">Data de nascimento</label>
+                        <input type="date" class="form-control" id="inputBorn" name="data_nascimento">   
                     </div>
                     <div class="mb-3">
                         <input type="submit" class="btn btn-success">
