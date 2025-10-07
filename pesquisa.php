@@ -45,30 +45,34 @@
                             <th scope="col">Endereço</th>
                             <th scope="col">Telefone</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Data de nascimento
+                            <th scope="col">Data de nascimento</th>
+                            <th scope="col">Funções</th>
                             </tr>
                         </thead>
                         <tbody>
 
                             <?php
                                 while ($linha = mysqli_fetch_assoc($dados)){
-                                $cod_pessoa = $linha['cod_pessoa'];
-                                $nome = $linha['nome'];
-                                $endereco = $linha['endereco'];
-                                $telefone = $linha['telefone'];
-                                $email = $linha['email'];
-                                $data_nascimento = $linha['data_nascimento'];      
-                                
-                                echo 
-                                "<tr>
-                                    <th scope='row'>$nome</th>
-                                    <td>$endereco</td>
-                                    <td>$telefone</td>
-                                    <td>$email</td>
-                                    <td>$data_nascimento</td>
-                                </tr>";                                }
+                                    $cod_pessoa = $linha['cod_pessoa'];
+                                    $nome = $linha['nome'];
+                                    $endereco = $linha['endereco'];
+                                    $telefone = $linha['telefone'];
+                                    $email = $linha['email'];
+                                    $data_nascimento = $linha['data_nascimento'];   
+                                    $data_nascimento = mostraData($data_nascimento);  
+                                    
+                                    echo 
+                                    "<tr>
+                                        <th scope='row'>$nome</th>
+                                        <td>$endereco</td>
+                                        <td>$telefone</td>
+                                        <td>$email</td>
+                                        <td>$data_nascimento</td>
+                                        <td>
 
-                                
+                                        </td>
+                                    </tr>";                                
+                                }
                             ?>
                             
                         </tbody>
