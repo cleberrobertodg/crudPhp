@@ -70,7 +70,8 @@
                                         <td>$data_nascimento</td>
                                         <td>
                                             <a href='cadastro_edit.php?id=$cod_pessoa' class='btn btn-success btn-sm'>Editar</a>
-                                            <a href='#' class='btn btn-danger btn-sm' data-toggle='modal' data-target='#confirma'>Excluir</a>
+                                            <a href='#' class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#confirma'
+                                            onclick=".'"'."pegarDados($cod_pessoa, '$nome')".'"'.">Excluir</a>
                                         </td>
                                     </tr>";                                
                                 }
@@ -90,22 +91,30 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Confirmação de exclusão</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
       </div>
       <div class="modal-body">
+        <form action="excluir_script.php" method="POST">
         <p>Deseja realmente excluir</p>
         <p id="nome_pessoa">Nome pessoa</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-danger">Excluir</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <input type="text" name="id" id="id_pessoa" value="">
+            <input type="submit" class="btn btn-danger" value ="Excluir">
+        </form>
       </div>
     </div>
   </div>
 </div>
 
+
+<script>
+    function pegarDados(id, nome) {
+        document.querySelector('#nome_pessoa').innerHTML = nome;
+        document.querySelector('#id_pessoa').value = id;
+    }
+</script>
 
 
     <!-- Optional JavaScript; choose one of the two! -->
