@@ -69,7 +69,8 @@
                                         <td>$email</td>
                                         <td>$data_nascimento</td>
                                         <td>
-
+                                            <a href='cadastro_edit.php?id=$cod_pessoa' class='btn btn-success btn-sm'>Editar</a>
+                                            <a href='#' class='btn btn-danger btn-sm' data-toggle='modal' data-target='#confirma'>Excluir</a>
                                         </td>
                                     </tr>";                                
                                 }
@@ -83,8 +84,27 @@
         </div>
     </div>
 
-
-
+              <!-- Modal -->
+<div class="modal fade" id="confirma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmação de exclusão</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Deseja realmente excluir</p>
+        <p id="nome_pessoa">Nome pessoa</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger">Excluir</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
