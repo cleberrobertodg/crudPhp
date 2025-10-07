@@ -18,6 +18,7 @@
         
 
             include "conexao.php";
+            include_once "funcoes.php";
 
             $sql = "SELECT * FROM pessoas WHERE nome LIKE '%$pesquisa%'";
 

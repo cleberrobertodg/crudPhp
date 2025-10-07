@@ -39,19 +39,19 @@
                     </div>
                     <div class="mb-3">
                         <label for="endereco" class="form-label">Endereço</label>
-                        <input type="text" class="form-control" id="inputAddress" name="endereco" value="<?php echo $linha['endereco']; ?>">   
+                        <input type="text" class="form-control" id="inputAddress" name="endereco" required value="<?php echo $linha['endereco']; ?>">   
                     </div>
                     <div class="mb-3">
                         <label for="telefone" class="form-label">Telefone</label>
-                        <input type="tel" class="form-control" id="inputPhone" name="telefone" value="<?php echo $linha['telefone']; ?>">   
+                        <input type="tel" class="form-control" id="inputPhone" name="telefone" required value="<?php echo $linha['telefone']; ?>">   
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="inputEmail1" name="email" value="<?php echo $linha['email']; ?>">   
+                        <input type="email" class="form-control" id="inputEmail1" name="email" required value="<?php echo $linha['email']; ?>">   
                     </div>
                     <div class="mb-3">
                         <label for="data_nascimento" class="form-label">Data de nascimento</label>
-                        <input type="date" class="form-control" id="inputBorn" name="data_nascimento" value="<?php echo $linha['data_nascimento']; ?>">   
+                        <input type="date" class="form-control" id="inputBorn" name="data_nascimento" required value="<?php echo $linha['data_nascimento']; ?>">   
                     </div>
                     <div class="mb-3">
                         <input type="submit" class="btn btn-success" value="Salvar alterações">
