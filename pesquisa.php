@@ -96,12 +96,13 @@
       </div>
       <div class="modal-body">
         <form action="excluir_script.php" method="POST">
-        <p>Deseja realmente excluir</p>
-        <p id="nome_pessoa">Nome pessoa</p>
+        <p>Deseja realmente excluir <b id="nome_pessoa">Nome pessoa</b>?</p>
+        
       </div>
       <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <input type="text" name="id" id="id_pessoa" value="">
+            <input type="hidden" name="id" id="id_pessoa" value="">
+            <input type="hidden" name="nome" id="nome" value="">
             <input type="submit" class="btn btn-danger" value ="Excluir">
         </form>
       </div>
