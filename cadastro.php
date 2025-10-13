@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col">
                 <h1>CRUD PHP</h1>
-                <form action="cadastro_script.php" method="post">
+                <form action="cadastro_script.php" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="nome" class="form-label">Nome completo</label>
                         <input type="text" class="form-control" id="inputName" name="nome" required>  
@@ -35,6 +35,10 @@
                     <div class="mb-3">
                         <label for="data_nascimento" class="form-label">Data de nascimento</label>
                         <input type="date" class="form-control" id="inputBorn" name="data_nascimento">   
+                    </div>
+                    <div class="mb-3">
+                        <label for="foto" class="form-label">Foto (somente arquivos de até 1MB)</label>
+                        <input type="file" class="form-control" id="inputPhoto" name="foto" accept=".jpg">   
                     </div>
                     <div class="mb-3">
                         <input type="submit" class="btn btn-success">

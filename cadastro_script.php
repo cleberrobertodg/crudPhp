@@ -25,11 +25,16 @@
                 $email = $_POST['email'];
                 $data_nascimento = $_POST['data_nascimento'];
                 
+                $foto = $_FILES['foto'];
+                $nomeFoto = moverFoto($foto);
+
+                
                 // Usando prepared statements para previnir SQL Injection
-                $stmt = mysqli_prepare($conn, "INSERT INTO `pessoas`(`nome`, `endereco`, `telefone`, `email`, `data_nascimento`) VALUES (?, ?, ?, ?, ?)");
-                mysqli_stmt_bind_param($stmt, "sssss", $nome, $endereco, $telefone, $email, $data_nascimento);
+                $stmt = mysqli_prepare($conn, "INSERT INTO `pessoas`(`nome`, `endereco`, `telefone`, `email`, `data_nascimento`, `foto`) VALUES (?, ?, ?, ?, ?, ?)");
+                mysqli_stmt_bind_param($stmt, "ssssss", $nome, $endereco, $telefone, $email, $data_nascimento, $nomeFoto);
  
                 if (mysqli_stmt_execute($stmt)) {
+                  echo "<img src='img/$nomeFoto' title='$nomeFoto' style='width:250px;'>";
                      mensagem("$nome cadastrado com sucesso!", 'success');
                 } else {
                      mensagem("$nome sofreu erro ao realizar cadastro! " . mysqli_error($conn), 'danger'); 

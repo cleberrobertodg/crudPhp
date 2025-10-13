@@ -42,6 +42,7 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
+                            <th scope="col">Foto</th>
                             <th scope="col">Nome completo</th>
                             <th scope="col">Endereço</th>
                             <th scope="col">Telefone</th>
@@ -61,9 +62,11 @@
                                     $email = $linha['email'];
                                     $data_nascimento = $linha['data_nascimento'];   
                                     $data_nascimento = mostraData($data_nascimento);  
+                                    $foto = $linha['foto'];   
                                     
                                     echo 
                                     "<tr>
+                                        <th><img src='img/$foto' style='width:70px; border-radius: 70px;'></th>
                                         <th scope='row'>$nome</th>
                                         <td>$endereco</td>
                                         <td>$telefone</td>
