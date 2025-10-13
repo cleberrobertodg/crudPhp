@@ -40,7 +40,8 @@
             <!-- PHP TERMINA AQUI -->
 
             <hr>
-            <a href="index.php" class="btn btn-primary">Voltar</a>
+            <a href="index.php" class="btn btn-primary">Home</a>
+            <a href="pesquisa.php" class="btn btn-primary">Voltar</a>
         </div>
     </div>
 
