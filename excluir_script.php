@@ -28,9 +28,9 @@
                 mysqli_stmt_bind_param($stmt, "i", $id);
  
                 if (mysqli_stmt_execute($stmt)) {
-                     mensagem("$nome excluído com sucesso!", 'success');
+                     mensagem("Excluído com sucesso!", 'success');
                 } else {
-                     mensagem("$nome sofreu erro ao realizar exclusão! " . mysqli_error($conn), 'danger'); 
+                     mensagem("Erro ao realizar exclusão! " . mysqli_error($conn), 'danger'); 
                 }
  
                 mysqli_stmt_close($stmt);
