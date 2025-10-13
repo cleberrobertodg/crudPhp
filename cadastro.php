@@ -38,7 +38,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="foto" class="form-label">Foto (somente arquivos de até 1MB)</label>
-                        <input type="file" class="form-control" id="inputPhoto" name="foto" accept=".jpg">   
+                        <input type="file" class="form-control" id="inputPhoto" name="foto" accept="image/*">   
                     </div>
                     <div class="mb-3">
                         <input type="submit" class="btn btn-success">

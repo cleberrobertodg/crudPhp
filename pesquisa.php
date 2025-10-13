@@ -62,11 +62,16 @@
                                     $email = $linha['email'];
                                     $data_nascimento = $linha['data_nascimento'];   
                                     $data_nascimento = mostraData($data_nascimento);  
-                                    $foto = $linha['foto'];   
-                                    
+                                    $foto = trim($linha['foto']); // remove espaços em branco
+
+                                    if ($foto != '' && file_exists("img/$foto")) {
+                                        $mostraFoto = "<img src='img/$foto' style='width:70px; border-radius:70px;'>";
+                                    } else {
+                                        $mostraFoto = "<img src='img/perfil.jpg' style='width:70px; border-radius:70px;'>";
+                                    }
                                     echo 
                                     "<tr>
-                                        <th><img src='img/$foto' style='width:70px; border-radius: 70px;'></th>
+                                        <th>$mostraFoto</th>
                                         <th scope='row'>$nome</th>
                                         <td>$endereco</td>
                                         <td>$telefone</td>
