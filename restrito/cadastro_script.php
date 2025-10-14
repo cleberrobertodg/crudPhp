@@ -1,3 +1,6 @@
+<?php 
+include("../validar.php");
+?>
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -24,6 +27,7 @@
                 $telefone = $_POST['telefone'];
                 $email = $_POST['email'];
                 $data_nascimento = $_POST['data_nascimento'];
+                
                 
                 $foto = $_FILES['foto'];
                 $nomeFoto = moverFoto($foto);

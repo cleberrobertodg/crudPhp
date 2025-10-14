@@ -1,3 +1,6 @@
+<?php 
+include("../validar.php");
+?>
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -14,13 +17,15 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="jumbotron">
-                    <h1 class="display-4">Cadastro Web!</h1>
+                <!-- Substituindo a classe 'jumbotron' por classes do Bootstrap 5 -->
+                <div class="p-5 mb-4 bg-light rounded-3">
+                    <h1 class="display-4">Cadastro Web</h1>
                     <p class="lead">Este é um sistema simplificado de cadastros. Base de estudos para sistema web PHP e MySQL.</p>
                     <hr class="my-4">
                     <p>Acesse as Funções.</p>
-                    <a class="btn btn-primary btn-lg" href="cadastro.php" role="button">Cadastre-se</a>
-                    <a class="btn btn-primary btn-lg" href="pesquisa.php" role="button">Pesquisar</a>
+                    <a class="btn btn-primary btn-lg" href="../restrito/cadastro.php" role="button">Cadastre-se</a>
+                    <a class="btn btn-primary btn-lg" href="../restrito/pesquisa.php" role="button">Pesquisar</a>
+                    <a class="btn btn-danger btn-lg" href="../logout.php" role="button">Logout</a>
                 </div>
             </div>
         </div>

@@ -32,22 +32,38 @@
                     <?php 
                       if (isset($_POST['login'])) {
                         $login = $_POST['login'];
-                        $senha = $_POST['senha'];
+                        $senha = md5($_POST['senha']);
 
-                        if ($login == "admin" && $senha == "admin") {
-                            header("location: restrito");
-                            exit; // boa prática após redirecionar
-                        } elseif (($login == "" || $login == null) && ($senha == "" || $senha == null)) {
-                            echo "Preencha todos os campos!";
-                        } else {
-                            echo "Login inválido!";
-                        }
-                    }
+                        include "restrito/conexao.php";
+                        $sql = "SELECT * FROM `usuarios` WHERE login = '$login' AND senha = '$senha'";
 
+                        if ($result =mysqli_query($conn, $sql)){
+                          $numRegistros = mysqli_num_rows($result);
+
+                            if ($numRegistros == 1){
+                              $linha = mysqli_fetch_assoc($result);
+                              if ($login == $linha['login'] && $senha == $linha['senha']) {
+                                session_start();
+                                $_SESSION['login'] = "Cleber";
+                                header("location: restrito");
+                                exit; // boa prática após redirecionar
+                              } elseif (($login == "" || $login == null) && ($senha == "" || $senha == null)) {
+                                  echo "Preencha todos os campos!";
+                                } else {
+                                  echo "Login inválido!";
+                              }
+
+                            } else{
+                              echo "Login/Senha inválidos, ou não encontrados!";
+                            }
+                          } else{
+                            echo "Nenhum dado encontrado no banco de dados!";
+                        }                     
+                      }
                     ?>
                 </div>
               </div>
-              <div class="col-3"></div>
+            <div class="col-3"></div>
         </div>
     </div>
 
