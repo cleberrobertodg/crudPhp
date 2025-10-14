@@ -54,7 +54,7 @@
                               }
 
                             } else{
-                              echo "Login/Senha inválidos, ou não encontrados!";
+                              header("location: cadastro.php");
                             }
                           } else{
                             echo "Nenhum dado encontrado no banco de dados!";

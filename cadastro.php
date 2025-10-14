@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1>CRUD PHP</h1>
+                <h1>Criação de usuário</h1>
                 <form action="cadastro_script.php" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="nome" class="form-label">Nome completo</label>
