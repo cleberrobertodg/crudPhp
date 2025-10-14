@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.rtl.min.css" integrity="sha384-CfCrinSRH2IR6a4e6fy2q6ioOX7O6Mtm1L9vRvFZ1trBncWmMePhzvafv7oIcWiW" crossorigin="anonymous">
 
-    <title>Exclusão de Cadastro</title>
+    <title>Alteração de Cadastro</title>
   </head>
   <body>
     <div class="container">
@@ -21,16 +21,19 @@
 
                 $id = $_POST['id'];
                 $nome = $_POST['nome'];
-
+                $endereco = $_POST['endereco'];
+                $telefone = $_POST['telefone'];
+                $email = $_POST['email'];
+                $data_nascimento = $_POST['data_nascimento'];
                 
-                // Usando prepared statements para previnir SQL Injection no DELETE
-                $stmt = mysqli_prepare($conn, "DELETE from`pessoas` WHERE `cod_pessoa` = ?");
-                mysqli_stmt_bind_param($stmt, "i", $id);
+                // Usando prepared statements para previnir SQL Injection no UPDATE
+                $stmt = mysqli_prepare($conn, "UPDATE `pessoas` SET `nome` = ?, `endereco` = ?, `telefone` = ?, `email` = ?, `data_nascimento` = ? WHERE `cod_pessoa` = ?");
+                mysqli_stmt_bind_param($stmt, "sssssi", $nome, $endereco, $telefone, $email, $data_nascimento, $id);
  
                 if (mysqli_stmt_execute($stmt)) {
-                     mensagem("Excluído com sucesso!", 'success');
+                     mensagem("$nome editado com sucesso!", 'success');
                 } else {
-                     mensagem("Erro ao realizar exclusão! " . mysqli_error($conn), 'danger'); 
+                     mensagem("$nome sofreu erro ao realizar edição! " . mysqli_error($conn), 'danger'); 
                 }
  
                 mysqli_stmt_close($stmt);
@@ -40,9 +43,7 @@
             <!-- PHP TERMINA AQUI -->
 
             <hr>
-            <a href="index.php" class="btn btn-primary">Home</a>
-            <hr>
-            <a href="pesquisa.php" class="btn btn-primary">Voltar</a>
+            <a href="/index.php" class="btn btn-primary">Voltar</a>
         </div>
     </div>
 

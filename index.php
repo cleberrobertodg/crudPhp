@@ -19,8 +19,8 @@
                     <p class="lead">Este é um sistema simplificado de cadastros. Base de estudos para sistema web PHP e MySQL.</p>
                     <hr class="my-4">
                     <p>Acesse as Funções.</p>
-                    <a class="btn btn-primary btn-lg" href="cadastro.php" role="button">Cadastre-se</a>
-                    <a class="btn btn-primary btn-lg" href="pesquisa.php" role="button">Pesquisar</a>
+                    <a class="btn btn-primary btn-lg" href="/restrito/cadastro.php" role="button">Cadastre-se</a>
+                    <a class="btn btn-primary btn-lg" href="/restrito/pesquisa.php" role="button">Pesquisar</a>
                 </div>
             </div>
         </div>

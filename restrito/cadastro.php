@@ -44,7 +44,7 @@
                         <input type="submit" class="btn btn-success">
                     </div>
                 </form>
-                <a href="index.php" class="btn btn-primary">Voltar a tela inicial</a></a>
+                <a href="/index.php" class="btn btn-primary">Voltar a tela inicial</a></a>
             </div>
         </div>
     </div>
