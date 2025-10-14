@@ -27,7 +27,8 @@ include("../validar.php");
                 $telefone = $_POST['telefone'];
                 $email = $_POST['email'];
                 $data_nascimento = $_POST['data_nascimento'];
-                
+                $login = $_POST['login'];
+                $senha = $_POST['senha'];
                 
                 $foto = $_FILES['foto'];
                 $nomeFoto = moverFoto($foto);
@@ -38,8 +39,8 @@ include("../validar.php");
 
                 
                 // Usando prepared statements para previnir SQL Injection
-                $stmt = mysqli_prepare($conn, "INSERT INTO `pessoas`(`nome`, `endereco`, `telefone`, `email`, `data_nascimento`, `foto`) VALUES (?, ?, ?, ?, ?, ?)");
-                mysqli_stmt_bind_param($stmt, "ssssss", $nome, $endereco, $telefone, $email, $data_nascimento, $nomeFoto);
+                $stmt = mysqli_prepare($conn, "INSERT INTO `pessoas`(`nome`, `endereco`, `telefone`, `email`, `data_nascimento`, `foto`, `login`, `senha`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                mysqli_stmt_bind_param($stmt, "ssssssss", $nome, $endereco, $telefone, $email, $data_nascimento, $nomeFoto, $login, $senha);
  
                 if ($nomeFoto !=null){
                   echo "<img src='img/$nomeFoto' title='$nomeFoto' style='width:250px;'>";

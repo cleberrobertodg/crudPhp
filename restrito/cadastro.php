@@ -1,6 +1,3 @@
-<?php 
-include("../validar.php");
-?>
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -43,6 +40,14 @@ include("../validar.php");
                     <div class="mb-3">
                         <label for="foto" class="form-label">Foto (somente arquivos de até 1MB)</label>
                         <input type="file" class="form-control" id="inputPhoto" name="foto" accept="image/*">   
+                    </div>
+                    <div class="mb-3">
+                        <label for="login" class="form-label">Nome de usuário</label>
+                        <input type="text" class="form-control" id="inputLogin" name="login" required>   
+                    </div>
+                    <div class="mb-3">
+                        <label for="senha" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="inputSenha" name="senha" required>   
                     </div>
                     <div class="mb-3">
                         <input type="submit" class="btn btn-success">

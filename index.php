@@ -32,10 +32,10 @@
                     <?php 
                       if (isset($_POST['login'])) {
                         $login = $_POST['login'];
-                        $senha = md5($_POST['senha']);
+                        $senha = $_POST['senha'];
 
                         include "restrito/conexao.php";
-                        $sql = "SELECT * FROM `usuarios` WHERE login = '$login' AND senha = '$senha'";
+                        $sql = "SELECT * FROM `pessoas` WHERE login = '$login' AND senha = '$senha'";
 
                         if ($result =mysqli_query($conn, $sql)){
                           $numRegistros = mysqli_num_rows($result);
