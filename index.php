@@ -30,6 +30,7 @@
                       <button type="submit" class="btn btn-primary">Acessar</button>
                     </form>
                     <?php 
+                    echo "Caso não tenha cadastro, crie seu usuário <a href='cadastro.php' role='button'>aqui</a>";
                       if (isset($_POST['login'])) {
                         $login = $_POST['login'];
                         $senha = $_POST['senha'];
