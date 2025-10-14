@@ -43,7 +43,7 @@
             <!-- PHP TERMINA AQUI -->
 
             <hr>
-            <a href="/index.php" class="btn btn-primary">Voltar</a>
+            <a href="index.php" class="btn btn-primary">Voltar</a>
         </div>
     </div>
 

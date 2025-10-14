@@ -8,41 +8,21 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.rtl.min.css" integrity="sha384-CfCrinSRH2IR6a4e6fy2q6ioOX7O6Mtm1L9vRvFZ1trBncWmMePhzvafv7oIcWiW" crossorigin="anonymous">
 
-    <title>Exclusão de Cadastro</title>
+    <title>Empresa</title>
   </head>
   <body>
     <div class="container">
         <div class="row">
-            <!-- PHP COMEÇA AQUI -->
-            <?php
-
-                include_once "conexao.php";
-                include_once "funcoes.php";
-
-                $id = $_POST['id'];
-                $nome = $_POST['nome'];
-
-                
-                // Usando prepared statements para previnir SQL Injection no DELETE
-                $stmt = mysqli_prepare($conn, "DELETE from`pessoas` WHERE `cod_pessoa` = ?");
-                mysqli_stmt_bind_param($stmt, "i", $id);
- 
-                if (mysqli_stmt_execute($stmt)) {
-                     mensagem("Excluído com sucesso!", 'success');
-                } else {
-                     mensagem("Erro ao realizar exclusão! " . mysqli_error($conn), 'danger'); 
-                }
- 
-                mysqli_stmt_close($stmt);
-                mysqli_close($conn);
- 
-            ?>
-            <!-- PHP TERMINA AQUI -->
-
-            <hr>
-            <a href="index.php" class="btn btn-primary">Home</a>
-            <hr>
-            <a href="pesquisa.php" class="btn btn-primary">Voltar</a>
+            <div class="col">
+                <div class="jumbotron">
+                    <h1 class="display-4">Cadastro Web!</h1>
+                    <p class="lead">Este é um sistema simplificado de cadastros. Base de estudos para sistema web PHP e MySQL.</p>
+                    <hr class="my-4">
+                    <p>Acesse as Funções.</p>
+                    <a class="btn btn-primary btn-lg" href="cadastro.php" role="button">Cadastre-se</a>
+                    <a class="btn btn-primary btn-lg" href="pesquisa.php" role="button">Pesquisar</a>
+                </div>
+            </div>
         </div>
     </div>
 

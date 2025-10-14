@@ -13,16 +13,41 @@
   <body>
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-3"></div>
+            <div class="col-6">
                 <div class="jumbotron">
-                    <h1 class="display-4">Cadastro Web!</h1>
-                    <p class="lead">Este é um sistema simplificado de cadastros. Base de estudos para sistema web PHP e MySQL.</p>
-                    <hr class="my-4">
-                    <p>Acesse as Funções.</p>
-                    <a class="btn btn-primary btn-lg" href="/restrito/cadastro.php" role="button">Cadastre-se</a>
-                    <a class="btn btn-primary btn-lg" href="/restrito/pesquisa.php" role="button">Pesquisar</a>
+                    <h1 class="display-4">Login</h1>
+                    <form action="index.php" method="POST">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Login</label>
+                        <input type="text" class="form-control" aria-describedby="emailHelp" name="login">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Senha</label>
+                        <input type="password" class="form-control" name="senha">
+                      </div>
+                      <br>
+                      <button type="submit" class="btn btn-primary">Acessar</button>
+                    </form>
+                    <?php 
+                      if (isset($_POST['login'])) {
+                        $login = $_POST['login'];
+                        $senha = $_POST['senha'];
+
+                        if ($login == "admin" && $senha == "admin") {
+                            header("location: restrito");
+                            exit; // boa prática após redirecionar
+                        } elseif (($login == "" || $login == null) && ($senha == "" || $senha == null)) {
+                            echo "Preencha todos os campos!";
+                        } else {
+                            echo "Login inválido!";
+                        }
+                    }
+
+                    ?>
                 </div>
-            </div>
+              </div>
+              <div class="col-3"></div>
         </div>
     </div>
 
