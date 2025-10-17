@@ -19,8 +19,8 @@ include("../validar.php");
             <div class="col">
                 <!-- Substituindo a classe 'jumbotron' por classes do Bootstrap 5 -->
                 <div class="p-5 mb-4 bg-light rounded-3">
-                    <h1 class="display-4">Cadastro Web</h1>
-                    <p class="lead">Este é um sistema simplificado de cadastros. Base de estudos para sistema web PHP e MySQL.</p>
+                    <h1 class="display-4">Admin</h1>
+                    <p class="lead">Através daqui, você pode acessar os usuários do sistema</p>
                     <hr class="my-4">
                     <p>Acesse as Funções.</p>
                     <a class="btn btn-primary btn-lg" href="../restrito/pesquisa.php" role="button">Pesquisar</a>
