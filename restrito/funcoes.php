@@ -4,7 +4,7 @@
                 $texto
             </div>";
     }
-
+// Função para organizar a exibição da data para o formato dd/mm/aaaa
   function mostraData($data_nascimento){
         $data = explode('-', $data_nascimento);
         $dia = $data[2];
@@ -13,6 +13,7 @@
         return $dia . "/" . $mes . "/" . $ano;
     }
 
+// Função para mover a foto enviada para a pasta img
     function moverFoto($arrayFoto){
     $arrayTipo = explode("/", $arrayFoto['type']);
     $tipo = $arrayTipo[0] ?? '';
