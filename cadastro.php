@@ -42,6 +42,9 @@
                         <input type="file" class="form-control" id="inputPhoto" name="foto" accept="image/*">   
                     </div>
                     <div class="mb-3">
+                        <img id="imgPreview" src="restrito/img/perfil.jpg" alt="Pré-visualização da foto" style="max-width: 200px; max-height: 200px; border-radius: 10px; object-fit: cover;">
+                    </div>
+                    <div class="mb-3">
                         <label for="login" class="form-label">Nome de usuário</label>
                         <input type="text" class="form-control" id="inputLogin" name="login" required>   
                     </div>
@@ -67,6 +70,18 @@
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <script>
+        const inputPhoto = document.getElementById('inputPhoto');
+        const imgPreview = document.getElementById('imgPreview');
+
+        inputPhoto.onchange = evt => {
+            const [file] = inputPhoto.files;
+            if (file) {
+                imgPreview.src = URL.createObjectURL(file);
+            }
+        };
+    </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
