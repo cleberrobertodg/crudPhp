@@ -33,7 +33,7 @@
         }
 
     } else {
-        return "Erro ao subir imagem!";
+        return "Imagem padrão";
     }
 }
 
