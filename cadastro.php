@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col">
                 <h1>Criação de usuário</h1>
-                <form action="cadastro_script.php" method="POST" enctype="multipart/form-data">
+                <form action="./restrito/cadastro_script.php" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="nome" class="form-label">Nome completo</label>
                         <input type="text" class="form-control" id="inputName" name="nome" required>  

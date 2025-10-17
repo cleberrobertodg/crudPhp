@@ -13,8 +13,7 @@
         return $dia . "/" . $mes . "/" . $ano;
     }
 
-    function moverFoto($arrayFoto)
-{
+    function moverFoto($arrayFoto){
     $arrayTipo = explode("/", $arrayFoto['type']);
     $tipo = $arrayTipo[0] ?? '';
     $extensao = $arrayTipo[1] ?? '';
@@ -22,7 +21,7 @@
     // Verifica se foto é menor que 1MB e se não houve erro no upload
     if ($arrayFoto['size'] <= 1000000 && $arrayFoto['error'] == 0 && $tipo == 'image') {
 
-        $nome_arquivo = date('YmdHis') . $extensao;
+        $nome_arquivo = date('YmdHis') . "$extensao";
         $destino = "img/" . $nome_arquivo;
 
         // Move o arquivo temporário para a pasta final

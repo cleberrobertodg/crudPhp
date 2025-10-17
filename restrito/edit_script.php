@@ -28,10 +28,26 @@ include("../validar.php");
                 $telefone = $_POST['telefone'];
                 $email = $_POST['email'];
                 $data_nascimento = $_POST['data_nascimento'];
+
+                // Lógica para upload de foto
+                $nome_foto_antiga = mysqli_fetch_assoc(mysqli_query($conn, "SELECT foto FROM pessoas WHERE cod_pessoa = $id"))['foto'];
+                $nome_foto_nova = $nome_foto_antiga; // Mantém a foto antiga por padrão
+
+                // Verifica se uma nova foto foi enviada e se não há erros
+                if (isset($_FILES['foto']) && $_FILES['foto']['error'] == UPLOAD_ERR_OK) {
+                    $foto = $_FILES['foto'];
+                    $nome_foto_nova = moverFoto($foto);
+
+                    // Se o upload for bem-sucedido e o nome da foto antiga existir, apaga a foto antiga
+                    if ($nome_foto_nova != "erro" && $nome_foto_nova != "Erro ao subir imagem!" && !empty($nome_foto_antiga) && file_exists("img/$nome_foto_antiga")) {
+                        unlink("img/$nome_foto_antiga");
+                    }
+                }
                 
                 // Usando prepared statements para previnir SQL Injection no UPDATE
-                $stmt = mysqli_prepare($conn, "UPDATE `pessoas` SET `nome` = ?, `endereco` = ?, `telefone` = ?, `email` = ?, `data_nascimento` = ? WHERE `cod_pessoa` = ?");
-                mysqli_stmt_bind_param($stmt, "sssssi", $nome, $endereco, $telefone, $email, $data_nascimento, $id);
+                $sql = "UPDATE `pessoas` SET `nome` = ?, `endereco` = ?, `telefone` = ?, `email` = ?, `data_nascimento` = ?, `foto` = ? WHERE `cod_pessoa` = ?";
+                $stmt = mysqli_prepare($conn, $sql);
+                mysqli_stmt_bind_param($stmt, "ssssssi", $nome, $endereco, $telefone, $email, $data_nascimento, $nome_foto_nova, $id);
  
                 if (mysqli_stmt_execute($stmt)) {
                      mensagem("$nome editado com sucesso!", 'success');
@@ -41,7 +57,6 @@ include("../validar.php");
  
                 mysqli_stmt_close($stmt);
                 mysqli_close($conn);
- 
             ?>
             <!-- PHP TERMINA AQUI -->
 
